@@ -17,7 +17,7 @@ var rev = require('gulp-rev');
 var clean = require('gulp-clean');
 var rjsConfig = require('./public/scripts/requirejsConfig');
 var es = require('event-stream');
-
+var ghPages = require('gulp-gh-pages');
 var server = lr();
 // gulp.task('default', function(){
 //   // place code for your default task here
@@ -175,6 +175,11 @@ gulp.task('default', ['listen', 'translations'], function() {
 
 
 
+});
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(deploy());
 });
 
 gulp.task('listen', function(next) {

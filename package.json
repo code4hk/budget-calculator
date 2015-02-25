@@ -50,5 +50,8 @@
   },
   "bugs": {
     "url": "https://github.com/code4hk/budget2015/issues"
+  },
+  "dependencies": {
+    "gulp-gh-pages": "^0.4.0"
   }
 }
