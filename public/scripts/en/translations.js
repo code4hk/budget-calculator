@@ -7,6 +7,16 @@ define(["require", "exports"], function(require, exports) {
 		"LIVING_COST": "Living expenses",
 		"SALARY_TAX": "Salary tax"
 	},
+	"LIVING": {
+		"ELECTRICITY": "Electricity Bill",
+		"ELECTRICITY_INFO": "Electricity Subsidy Facts",
+		"RATES": "Rates",
+		"RATES_TOOLTIP_1415": "14-15: 全年首兩季獲每季上限$1500的寬減,總計$3,000",
+		"RATES_TOOLTIP_1516": "15-16: 全年首兩季獲每季上限$2500的寬減,總計$5,000",
+		"PUBLIC_HOUSING_RENT": "Public Housing Monthly Rent"
+	},
+	"MONTH": "Months",
+	"SEASON": "Seasons",
 	"INCOME_TOTAL": "Total income",
 	"DEDUCTION": "Deductions",
 	"DEDUCTION_TOTAL": "Total deductions",

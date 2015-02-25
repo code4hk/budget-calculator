@@ -15,6 +15,7 @@ define(
         'ngRoute',
         'hkTaxCal.controllers',
         'ui.bootstrap',
+        'ui.bootstrap.tooltip',
         'pascalprecht.translate',
         'taxCalculator.translations.zh-TW',
         'taxCalculator.translations.en',
@@ -53,7 +54,9 @@ define(
       //   }
       // ])
       .config(['$tooltipProvider', function(tooltipProvider) {
-        // tooltipProvider.options({placement:'right'});
+        tooltipProvider.options({
+          placement: 'right'
+        });
       }])
       .directive('parentRecord', [function() {
         return {

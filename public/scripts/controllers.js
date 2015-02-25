@@ -24,8 +24,9 @@ define(
         }
       ])
       .controller('calculatorCtrl', ['$scope', '$window', "$location",
-        "$anchorScroll", "$timeout",
-        function($scope, $window, $location, $anchorScroll, $timeout) {
+        "$anchorScroll", "$timeout", "$filter",
+        function($scope, $window, $location, $anchorScroll, $timeout,
+          $filter) {
           //TODO upgrade to analytics.js
           if ($window._gaq) {
             $scope.$on('$viewContentLoaded', function(event) {
@@ -124,10 +125,14 @@ define(
             //TODO map with localization variable // formatting
             //prefer delay on hide tooltip to support links inside
             // delay: { show: 500, hide: 100 }
+
+          var tFilter = $filter('t');
           $scope.electricityInputTooltip =
             '<div>電費以每月計算</div><div>13-14:政府2013年6月至2014年6月每月補貼$150,總計$1,800</div> <div>14-15: 取消電費補貼安排</div>';
           $scope.publicServiceInputTooltip =
-            '<div>差餉以每季計算</div><div>13-14:全年每季均獲差餉上限$1,500寬減,總計$6,000</div> <div>14-15: 只有首兩季費獲每季上限$1500的寬減,總計$3,000</div>';
+            '<div>差餉以每季計算</div><div>' + tFilter('LIVING.RATES_TOOLTIP_1415') +
+            '</div> <div>' + tFilter('LIVING.RATES_TOOLTIP_1516') +
+            '</div>';
           $scope.publicHouseRentInputTooltip =
             '<div>13-14:為公屋租戶代繳兩個月租金</div><div>14-15:今年減至只代繳一個月</div>';
           $scope.cigaretteInputTooltip =
@@ -241,7 +246,7 @@ define(
           //cant handle nested
           $scope.diff = function(propKey) {
             return $scope.$eval('y2015.' + propKey) - $scope.$eval(
-                      'y2014.' + propKey);
+              'y2014.' + propKey);
             //return $scope.$eval('y2014.' + propKey) - $scope.$eval(
             //  'y2013.' + propKey);
             // return $scope['y2014'][propKey] - $scope['y2013'][propKey];

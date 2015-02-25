@@ -57,12 +57,25 @@
 </div>
 <div class="calculator-container container-fluid content">
     <section>
-        <h3 class="calculator-heading">{{'HEADING.LIVING_COST'|translate}}</h3>
+    <h3 class="calculator-heading">{{'HEADING.LIVING_COST'|translate}}</h3>
+   <div class="row">
+    <div class="col-xs-7 col-sm-5 tax-item">
+        <span tooltip-html-unsafe="{{publicServiceInputTooltip}}" tooltip-placement="right"><i class="fa fa-flash"></i>{{::'LIVING.RATES'|t}}</span>
+    </div>
+    <div class="col-xs-7 col-sm-3 tax-item-input">$<input tooltip-html-unsafe="{{publicServiceInputTooltip}}" tooltip-trigger="focus" class="label-input" type="text" ng-model="living.publicServiceCount" maxlength="4" size="4">x 4 {{::'SEASON'|t}}</div>
+    <div class="col-xs-2 col-sm-2 y2014tax label label-1415">${{y2014.publicServiceTax | number:0}}
+    </div>
+    <div class="col-xs-3 col-sm-2 label label-diff">
+       <tax-diff prop-key="publicServiceTax"></tax-diff>
+   </div>
+  </div>
+
+
     <div class="row" >
         <div class="col-xs-7 col-sm-5" >
-            <i class="fa fa-flash"></i>電費 <a href="https://www.clponline.com.hk/FAQ/ResidentialCustomersFAQ/Pages/govSubsidy.aspx#a01" target="_blank"><i class="fa fa-info-circle" taget="_blank"></i>中電資料</a>
+            <i class="fa fa-flash"></i>{{::'LIVING.ELECTRICITY'|t}} &nbsp;<a href="http://www.fstb.gov.hk/tb/tc/electricity-subsidy-scheme.htm" target="_blank"><i class="fa fa-info-circle" taget="_blank"></i>{{::'LIVING.ELECTRICITY_INFO'|t}}</a>
         </div>
-        <div class="col-xs-7 col-sm-3 tax-item-input">每月$<input tooltip-html-unsafe="{{electricityInputTooltip}}" class="label-input" type="text" ng-model="living.electricityCount" maxlength="4" size="4">x 12 月</div>
+        <div class="col-xs-7 col-sm-3 tax-item-input">$<input tooltip-html-unsafe="{{electricityInputTooltip}}" tooltip-trigger="focus" class="label-input" type="text" ng-model="living.electricityCount" maxlength="4" size="4">x 12 {{::'MONTH'|t}}</div>
         <div class="col-xs-2 col-sm-2 y2014tax label label-1415">${{y2014.electricityTax | number:0}}
         </div>
         <div class="col-xs-3 col-sm-2 label label-diff">
@@ -70,23 +83,12 @@
        </div>
    </div>
 
-   <div class="row">
-    <div class="col-xs-7 col-sm-5 tax-item">
-        <span tooltip-html-unsafe="{{publicServiceInputTooltip}}" tooltip-placement="right"><i class="fa fa-flash"></i>差餉</span>
-    </div>
-    <div class="col-xs-7 col-sm-3 tax-item-input">每季$<input tooltip-html-unsafe="{{publicServiceInputTooltip}}" class="label-input" type="text" ng-model="living.publicServiceCount" maxlength="4" size="4">x 4 季</div>
-    <div class="col-xs-2 col-sm-2 y2014tax label label-1415">${{y2014.publicServiceTax | number:0}}
-    </div>
-    <div class="col-xs-3 col-sm-2 label label-diff">
-       <tax-diff prop-key="publicServiceTax"></tax-diff>
-   </div>
-</div>
 
-<div class="row">
+<div ng-if="false" class="row">
     <div class="col-xs-7 col-sm-5 tax-item" >
         <span tooltip-html-unsafe="{{cigaretteInputTooltip}}" tooltip-placement="right"><span class="icon-svg"></span>煙草稅</span><a href="http://www.customs.gov.hk/tc/trade_facilitation/dutiable/types/index.html#tobacco" target="_blank"><i class="fa fa-info-circle"></i>海關資料</a>
     </div>
-    <div class="col-xs-7 col-sm-3 tax-item-input">每星期 <input tooltip-html-unsafe="{{cigaretteInputTooltip}}" type="text" ng-model="living.cigaretteCount" maxlength="4" size="4">包<small>（20支捲煙）</small></div>
+    <div class="col-xs-7 col-sm-3 tax-item-input">每星期 <input tooltip-html-unsafe="{{cigaretteInputTooltip}}" tooltip-trigger="focus" type="text" ng-model="living.cigaretteCount" maxlength="4" size="4">包<small>（20支捲煙）</small></div>
     <div class="col-xs-2 col-sm-2 y2014tax label label-1415"><div ng-show="show2014">${{y2014.cigaretteTax | number:0}}</div></div>
     <div class="col-xs-3 col-sm-2 label label-diff"> <tax-diff prop-key="cigaretteTax"></tax-diff>       </div>
 </div>
@@ -102,9 +104,9 @@
 
 <div class="row">
     <div class="col-xs-7 col-sm-5 tax-item">
-        <span tooltip-html-unsafe="{{publicHouseRentInputTooltip}}" tooltip-placement="right"><span class="fa fa-home"></span>公屋月租</span>
+        <span tooltip-html-unsafe="{{publicHouseRentInputTooltip}}" tooltip-placement="right"><span class="fa fa-home"></span>{{::'LIVING.PUBLIC_HOUSING_RENT'|t}}</span>
     </div>
-    <div class="col-xs-7 col-sm-3 tax-item-input">每月$<input ng-focus="$parent.isShowLivingExpense=true" tooltip-html-unsafe="{{publicHouseRentInputTooltip}}" type="text" ng-model="living.publicHouseRentCount" maxlength="6" size="5">x 12 月</div>
+    <div class="col-xs-7 col-sm-3 tax-item-input">$<input ng-focus="$parent.isShowLivingExpense=true" tooltip-html-unsafe="{{publicHouseRentInputTooltip}}" type="text" ng-model="living.publicHouseRentCount" maxlength="6" size="5">x 12 {{::'MONTH'|t}}</div>
     <div class="col-xs-2 col-sm-2 label label-1415 y2014tax">${{y2014.publicHouseRentTax | number:0}}
     </div>
     <div class="col-xs-3 col-sm-2 label label-diff">
