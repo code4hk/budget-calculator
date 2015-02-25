@@ -100,6 +100,8 @@ gulp.task('build2', ['build'], function(cb) {
   es.concat(
     gulp.src('pre-dist/index.html')
     .pipe(gulp.dest('dist/')),
+    gulp.src('CNAME')
+    .pipe(gulp.dest('dist/')),
     gulp.src(['public/scripts/require.min.js'])
     .pipe(gulp.dest('dist/scripts/')),
     concatJs()
