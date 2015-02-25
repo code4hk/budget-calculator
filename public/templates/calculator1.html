@@ -119,7 +119,7 @@
     <div class="col-xs-5 col-sm-3 tax-item">
         <span tooltip-html-unsafe="{{publicHouseRentInputTooltip}}" tooltip-placement="right"><span class="fa fa-home"></span>公屋月租</span>
     </div>
-    <div class="col-xs-7 col-sm-3 tax-item-input">每月$<input tooltip-html-unsafe="{{publicHouseRentInputTooltip}}" type="text" ng-model="living.publicHouseRentCount" maxlength="6" size="5">x 12 月</div>
+    <div class="col-xs-7 col-sm-3 tax-item-input">每月$<input ng-focus="$parent.showLivingExpense=true" tooltip-html-unsafe="{{publicHouseRentInputTooltip}}" type="text" ng-model="living.publicHouseRentCount" maxlength="6" size="5">x 12 月</div>
     <div class="col-xs-offset-5 col-sm-offset-0 col-xs-2 col-sm-2 label label-1314 y2013tax">${{y2013.publicHouseRentTax | number:0}}
     </div>
     <div class="col-xs-2 col-sm-2 label label-1415 y2014tax">${{y2014.publicHouseRentTax | number:0}}
@@ -140,7 +140,7 @@
 <!-- livingTax -->
 
 
-<section>
+<section ng-show="showLivingExpense">
     <h3 class="calculator-heading">{{'HEADING.LIVING_COST'|translate}}</h3>
     <div class="row">
         <div class="col-xs-5 col-sm-3 tax-item">{{'INCOME_TOTAL'|t}}</div>
