@@ -18,8 +18,19 @@
       <div>
         <section class="site" ng-include="'templates/calculator1.html'">
         </section>
-      <footer>
-        <!-- &copy; 2014 All right reserved  -->
+      <footer style="margin-top:2rem; margin-bottom:2rem;" class="container ">
+        <div class="pull-right">
+          <div class="">
+        <a target="_blank" href="https://www.facebook.com/groups/code4hk/">Created by Code for Hong Kong Community&nbsp;  <img style="width:10rem;" src="https://www.code4.hk/img/logo.png"></img></a>
+          </div>
+
+          <div class="">
+            <a href="https://github.com/code4hk/budget-calculator" target="_blank">Open Source.</a> Also available <a target="_blank" href="http://www.ird.gov.hk/chi/ese/st_comp_2015_16_budget/cstcfrm.htm">Official Calculator by IRD</a> and <a href="http://www.ird.gov.hk/eng/pdf/pam61e.pdf">tax rate table</a>
+          </div>
+          <!-- <div class="">
+            Disclaimer: This is for easy comparison and policy research purpose only, <br/>shall not be taken as actual advice on filling tax return.
+          </div> -->
+        </div>
       </footer>
     </div>
     <!-- Remove the requirejsConfig in prd, meanwhile keep the tag to use requirejs by replace it iduring gulp-->
