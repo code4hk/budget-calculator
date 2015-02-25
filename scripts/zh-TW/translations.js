@@ -44,7 +44,8 @@ define(["require", "exports"], function(require, exports) {
 	"AMOUNT_LESS": "少{{amount|number:0}}",
 	"PAY_MORE": "交多${{amount|number:0}}",
 	"PAY_LESS": "交少${{amount|number:0}}",
-	"THIS_YEAR": "今年"
+	"THIS_YEAR": "今年",
+	"YEAR_1516": "15/16年"
 })
 
 ;
