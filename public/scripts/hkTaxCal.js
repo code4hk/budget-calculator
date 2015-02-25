@@ -99,6 +99,11 @@ var reduction = {
         "percent": 0.75,
         "maximum":"10000",
         "cases":["salary","profits","personal"]
+    },
+    "y2015": {
+        "percent": 0.75,
+        "maximum":"20000",
+        "cases":["salary","profits","personal"]
     }
 };
 
