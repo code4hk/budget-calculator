@@ -11,15 +11,21 @@ define(
 
     // http://www.ird.gov.hk/eng/ese/st_comp_2012_13/stcfrm.htm
     //test case: calculation compare with them, extract js there to calculate
-    angular.module('hkTaxCal.controllers', []).
-    controller('changeLanguageCtrl', ['$scope', '$translate', function($scope,
-        $translate) {
-        $scope.changeLanguage = function(langKey) {
-          $translate.use(langKey);
-        };
+    angular.module('hkTaxCal.controllers', [])
+      .run(['$anchorScroll', function($anchorScroll) {
+        $anchorScroll.yOffset = 50; // always scroll by 50 extra pixels
       }])
-      .controller('calculatorCtrl', ['$scope', '$window',
-        function($scope, $window) {
+      .controller('changeLanguageCtrl', ['$scope', '$translate',
+        function($scope,
+          $translate) {
+          $scope.changeLanguage = function(langKey) {
+            $translate.use(langKey);
+          };
+        }
+      ])
+      .controller('calculatorCtrl', ['$scope', '$window', "$location",
+        "$anchorScroll", "$timeout",
+        function($scope, $window, $location, $anchorScroll, $timeout) {
           //TODO upgrade to analytics.js
           if ($window._gaq) {
             $scope.$on('$viewContentLoaded', function(event) {
@@ -33,8 +39,7 @@ define(
             });
           }
 
-
-          $scope.show2013 = true;
+          $scope.show2013 = false;
           $scope.show2014 = true;
 
           var initYear = function(year) {
@@ -168,7 +173,22 @@ define(
             salaryTaxInfo['allowances']['isSingleParent'] = false;
             $scope.living = living;
             $scope.salaryTaxInfo = salaryTaxInfo;
+
+            var isShowLivingExpense = false;
+            $scope.isShowLivingExpense = isShowLivingExpense;
           };
+
+          $scope.showLivingExpense = function() {
+            $scope.isShowLivingExpense = true;
+            $timeout(function() {
+              // set the location.hash to the id of
+              // the element you wish to scroll to.
+              $location.hash('living');
+
+              // call $anchorScroll()
+              $anchorScroll();
+            })
+          }
 
           //TODO make input as ints?
 
