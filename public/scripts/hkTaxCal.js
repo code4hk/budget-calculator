@@ -109,7 +109,7 @@ var allowances = {
         "disabledDependent": 66000
     },
     "y2015": {
-        //TODO only updated child, bornChild,  another just copied 2014, need to verify
+        //TODO only updated child, bornChild,  another just copied 2014, need to verify, http://www.budget.gov.hk/2015/chi/pdf/c_budgetspeech2015-16.pdf page 51
         "basic": 120000,
         "married": 240000,
         "child": 100000,
