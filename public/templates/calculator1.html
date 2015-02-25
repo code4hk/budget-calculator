@@ -1,4 +1,5 @@
-<div style="postition:relative;margin 10px 0px 10px 0px">
+<div ng-controller="calculatorCtrl">
+<div  style="postition:relative;margin 10px 0px 10px 0px">
     <div class="">
        <a id="code4hk-badge-link" href="http://www.code4.hk" target="_blank"><img style="z-index:9999;position: absolute; top: 0; left: 0; border: 0;" src="https://trello-attachments.s3.amazonaws.com/52998d087f8efc0d05011eec/52ad5642cb6eba6571011a25/5af35373d1d638925edb4a6fd807e19c/forkme_light_background.png" alt="Code for Hong Kong" data-canonical-src="https://trello-attachments.s3.amazonaws.com/52998d087f8efc0d05011eec/52ad5642cb6eba6571011a25/5af35373d1d638925edb4a6fd807e19c/forkme_light_background.png"></a>
    </div>
@@ -34,15 +35,13 @@
         </div>
     </div>
     <div class="row change">
-        <div class="col-xs-5 col-sm-6"></div>
-        <div class=" col-xs-2 label label-success">13/14年</div>
+        <div class="col-xs-7 col-sm-8"></div>
         <div class=" col-xs-2 label label-danger">14/15年</div>
         <div class="col-xs-3 col-sm-2 label label-warning">{{::'THIS_YEAR'|t}}
         </div>
     </div>
     <div class="row change">
-        <div class="col-xs-5 col-sm-6"></div>
-        <div class=" col-xs-2 label label-pay "><span translate="AMOUNT_PAY" translate-values="{amount:y2013.total}"></span></div>
+        <div class="col-xs-7 col-sm-8"></div>
         <div class=" col-xs-2 label label-pay"><span translate="AMOUNT_PAY" translate-values="{amount:y2014.total}"></span></div>
         <div class="col-xs-3 col-sm-2 label label-pay">
             <!-- ${{y2014.total-y2013.total}} -->
@@ -57,24 +56,13 @@
 </nav>
 </div>
 <div class="calculator-container container-fluid content">
-<!--     <div class="calculator-header">
-        <h1>Budget Calculator</h1>
-        <div>Header2</div>
-    </div>
-    <div class="outer">
-        <span class="banner">LOGO</span>
-        <div class="calculator-header"><div>Header1</div></div>
-    </div>
-    <div class="content">Content</div> -->
     <section>
-        <h3 class="calculator-heading">{{'CALCULATOR_HEADER_TITLE'|translate}}</h3>
+        <h3 class="calculator-heading">{{'HEADING.LIVING_COST'|translate}}</h3>
     <div class="row" >
-        <div class="col-xs-5 col-sm-3" >
+        <div class="col-xs-7 col-sm-5" >
             <i class="fa fa-flash"></i>電費 <a href="https://www.clponline.com.hk/FAQ/ResidentialCustomersFAQ/Pages/govSubsidy.aspx#a01" target="_blank"><i class="fa fa-info-circle" taget="_blank"></i>中電資料</a>
         </div>
         <div class="col-xs-7 col-sm-3 tax-item-input">每月$<input tooltip-html-unsafe="{{electricityInputTooltip}}" class="label-input" type="text" ng-model="living.electricityCount" maxlength="4" size="4">x 12 月</div>
-        <div class="col-xs-offset-5 col-sm-offset-0 col-xs-2 col-sm-2 y2013tax label label-1314">${{y2013.electricityTax | number:0}}
-        </div>
         <div class="col-xs-2 col-sm-2 y2014tax label label-1415">${{y2014.electricityTax | number:0}}
         </div>
         <div class="col-xs-3 col-sm-2 label label-diff">
@@ -83,12 +71,10 @@
    </div>
 
    <div class="row">
-    <div class="col-xs-5 col-sm-3 tax-item">
+    <div class="col-xs-7 col-sm-5 tax-item">
         <span tooltip-html-unsafe="{{publicServiceInputTooltip}}" tooltip-placement="right"><i class="fa fa-flash"></i>差餉</span>
     </div>
     <div class="col-xs-7 col-sm-3 tax-item-input">每季$<input tooltip-html-unsafe="{{publicServiceInputTooltip}}" class="label-input" type="text" ng-model="living.publicServiceCount" maxlength="4" size="4">x 4 季</div>
-    <div class="col-xs-offset-5 col-sm-offset-0 col-xs-2 col-sm-2 y2013tax label label-1314">${{y2013.publicServiceTax | number:0}}
-    </div>
     <div class="col-xs-2 col-sm-2 y2014tax label label-1415">${{y2014.publicServiceTax | number:0}}
     </div>
     <div class="col-xs-3 col-sm-2 label label-diff">
@@ -97,11 +83,10 @@
 </div>
 
 <div class="row">
-    <div class="col-xs-5 col-sm-3 tax-item" >
+    <div class="col-xs-7 col-sm-5 tax-item" >
         <span tooltip-html-unsafe="{{cigaretteInputTooltip}}" tooltip-placement="right"><span class="icon-svg"></span>煙草稅</span><a href="http://www.customs.gov.hk/tc/trade_facilitation/dutiable/types/index.html#tobacco" target="_blank"><i class="fa fa-info-circle"></i>海關資料</a>
     </div>
     <div class="col-xs-7 col-sm-3 tax-item-input">每星期 <input tooltip-html-unsafe="{{cigaretteInputTooltip}}" type="text" ng-model="living.cigaretteCount" maxlength="4" size="4">包<small>（20支捲煙）</small></div>
-    <div class="col-xs-offset-5 col-sm-offset-0 col-xs-2 col-sm-2 label label-1314 y2013tax"><div ng-show="show2013">${{y2013.cigaretteTax | number:0}}</div></div>
     <div class="col-xs-2 col-sm-2 y2014tax label label-1415"><div ng-show="show2014">${{y2014.cigaretteTax | number:0}}</div></div>
     <div class="col-xs-3 col-sm-2 label label-diff"> <tax-diff prop-key="cigaretteTax"></tax-diff>       </div>
 </div>
@@ -116,12 +101,10 @@
 </div> -->
 
 <div class="row">
-    <div class="col-xs-5 col-sm-3 tax-item">
+    <div class="col-xs-7 col-sm-5 tax-item">
         <span tooltip-html-unsafe="{{publicHouseRentInputTooltip}}" tooltip-placement="right"><span class="fa fa-home"></span>公屋月租</span>
     </div>
-    <div class="col-xs-7 col-sm-3 tax-item-input">每月$<input tooltip-html-unsafe="{{publicHouseRentInputTooltip}}" type="text" ng-model="living.publicHouseRentCount" maxlength="6" size="5">x 12 月</div>
-    <div class="col-xs-offset-5 col-sm-offset-0 col-xs-2 col-sm-2 label label-1314 y2013tax">${{y2013.publicHouseRentTax | number:0}}
-    </div>
+    <div class="col-xs-7 col-sm-3 tax-item-input">每月$<input ng-focus="$parent.isShowLivingExpense=true" tooltip-html-unsafe="{{publicHouseRentInputTooltip}}" type="text" ng-model="living.publicHouseRentCount" maxlength="6" size="5">x 12 月</div>
     <div class="col-xs-2 col-sm-2 label label-1415 y2014tax">${{y2014.publicHouseRentTax | number:0}}
     </div>
     <div class="col-xs-3 col-sm-2 label label-diff">
@@ -130,24 +113,32 @@
 </div>
 
 <div class="row">
-    <div class="col-xs-3 col-sm-3"><label class="total total-total">{{::'TOTAL.LABEL'|t}}</label></div>
-    <div class="col-xs-offset-2 col-xs-2 col-sm-offset-3 label label-1314 y2013tax total-total">${{y2013.livingTax}}</div>
-    <div class="col-xs-2 label label-1415 y2014tax total-total">${{y2014.livingTax}}</div>
+    <div class="col-xs-7 col-sm-8"><label class="total total-total">{{::'TOTAL.LABEL'|t}}</label></div>
+    <div class="col-xs-2 col-sm-2 label label-1415 y2014tax total-total">${{y2014.livingTax}}</div>
     <div class="col-xs-3 col-sm-2 label label-diff total-total"><tax-diff prop-key="livingTax"></tax-diff></div>
 </div>
 
 </section>
+</div>
+
+<div class=" container-fluid content">
+  <div class="row">
+    <div ng-show="!isShowLivingExpense" ng-click="showLivingExpense()" class="col-xs-2 col-xs-offset-5 calculator-container" style="font-size:2rem;">
+        <a href=""><i class="fa fa-chevron-circle-down"><span style="margin-left:2rem;">More</span></i></a>
+    </div>
+  </div>
+  </div>
+
 <!-- livingTax -->
 
-
-<section>
-    <h3 class="calculator-heading">{{'HEADING.LIVING_COST'|translate}}</h3>
+<div id="living" class="calculator-container container-fluid content">
+<section ng-show="isShowLivingExpense">
+    <h3 class="calculator-heading">{{'HEADING.SALARY_TAX'|translate}}</h3>
     <div class="row">
-        <div class="col-xs-5 col-sm-3 tax-item">{{'INCOME_TOTAL'|t}}</div>
+        <div class="col-xs-7 col-sm-5 tax-item">{{'INCOME_TOTAL'|t}}</div>
         <div class="col-xs-7 col-sm-3 tax-item-input">
             $<input tooltip-html-unsafe="{{incomeInputTooltip}}" type="text" ng-model="salaryTaxInfo.income" maxlength="10" size="15">
         </div>
-        <div class="col-xs-offset-5 col-sm-offset-0 col-xs-2 col-sm-2 label label-1314 y2013tax">${{salaryTaxInfo.income}}</div>
         <div class="col-xs-2 col-sm-2 label label-1415 y2014tax">${{salaryTaxInfo.income}}</div>
         <div class="col-xs-3 col-sm-2 label "> </div>
     </div>
@@ -158,11 +149,10 @@
     <!-- <div class="col-xs-12"></div> -->
     <!-- </div> -->
     <div class="row">
-        <div class="col-xs-5 col-sm-3 tax-item">{{::'DEDUCTION_TOTAL'|t}}</div>
+        <div class="col-xs-7 col-sm-5 tax-item">{{::'DEDUCTION_TOTAL'|t}}</div>
         <div class="col-xs-7 col-sm-3 tax-item-input">
             $<input tooltip-html-unsafe="{{deductionsInputTooltip}}" type="text" ng-model="salaryTaxInfo.deductions.othersCount" maxlength="10" size="15">
         </div>
-        <div class="col-xs-offset-5 col-sm-offset-0 col-xs-2 col-sm-2 label label-1314 y2013tax">${{salaryTaxInfo.deductions.othersCount}}</div>
         <div class="col-xs-2 col-sm-2 label label-1415 y2014tax">${{salaryTaxInfo.deductions.othersCount}}</div>
         <div class="col-xs-3 col-sm-2 label "> </div>
     </div>
@@ -183,9 +173,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-5 col-sm-6 tax-item">{{::'EXEMPTION.BASIC'|t}}</div>
+            <div class="col-xs-7 col-sm-8 tax-item">{{::'EXEMPTION.BASIC'|t}}</div>
 
-            <div class="col-xs-2 label label-1314 y2013tax">${{y2013.salary.allowancesEntitled.basicPerStatus}}</div>
             <div class="col-xs-2 label label-1415 y2014tax">${{y2014.salary.allowancesEntitled.basicPerStatus}}</div>
             <div class="col-xs-3 col-sm-2 label label-diff">
                <diff prop-key="salary.allowancesEntitled.basicPerStatus" negative="false"></diff>
@@ -193,13 +182,12 @@
 
        </div>
        <div class="row">
-        <div class="col-xs-5 col-sm-3 tax-item">{{::'EXEMPTION.CHILDREN_COUNT'|t}}</div>
+        <div class="col-xs-7 col-sm-5 tax-item">{{::'EXEMPTION.CHILDREN_COUNT'|t}}</div>
         <div class="col-xs-7 col-sm-3 tax-item-input">
             <input tooltip-html-unsafe="{{childInputTooltip}}" type="text" ng-model="salaryTaxInfo.allowances.childCount" maxlength="2" size="2">
             課稅年出生： <input tooltip-html-unsafe="{{childInputTooltip}}" type="text" ng-model="salaryTaxInfo.allowances.bornChildCount" maxlength="2" size="2">
         </div>
 
-        <div class="col-xs-offset-5 col-sm-offset-0 col-xs-2 col-sm-2 label label-1314 y2013tax">${{y2013.salary.allowancesEntitled.totalChild}}</div>
         <div class="col-xs-2 col-sm-2 label label-1415 y2014tax">${{y2014.salary.allowancesEntitled.totalChild}}</div>
         <div class="col-xs-3 col-sm-2 label label-diff">
            <diff prop-key="salary.allowancesEntitled.totalChild" negative="false"></diff>
@@ -207,15 +195,14 @@
    </div>
 
    <div class="row">
-    <div class="col-xs-5 col-sm-3 tax-item">{{'EXEMPTION.SINGLE_PARENT'|t}}</div>
+    <div class="col-xs-7 col-sm-5 tax-item">{{'EXEMPTION.SINGLE_PARENT'|t}}</div>
     <div class="col-xs-7 col-sm-3 tax-item-input">
         <select ng-model="salaryTaxInfo.allowances.isSingleParent" ng-disabled="salaryTaxInfo.maritalStatus==='married'">
             <option value="false" selected="selected">{{'NO'|t}}</option>
             <option value="true">{{'YES'|t}}</option>
         </select>
     </div>
-    <div class="col-xs-offset-5 col-sm-offset-0 col-xs-2 col-sm-2 label label-1314 y2013tax">${{y2013.salary.allowancesEntitled.singleParent}} </div>
-    <div class="col-xs-2 col-sm-2  label label-1415 y2014tax">${{y2013.salary.allowancesEntitled.singleParent}}</div>
+    <div class="col-xs-2 col-sm-2  label label-1415 y2014tax">${{y2014.salary.allowancesEntitled.singleParent}}</div>
     <div class="col-xs-3 col-sm-2 label label-diff">
        <diff prop-key="salary.allowancesEntitled.singleParent" negative="false"></diff>
    </div>
@@ -224,25 +211,23 @@
 <div class="row">
 </div>
 <div class="row">
-    <div class="col-xs-5 col-sm-3 tax-item">{{::'EXEMPTION.PARENTS_60_COUNT'|t}}</div>
+    <div class="col-xs-7 col-sm-5 tax-item">{{::'EXEMPTION.PARENTS_60_COUNT'|t}}</div>
     <!--TODO resided-->
     <div class="col-xs-7 col-sm-3 tax-item-input">{{::'EXEMPTION.LIVING_TOGETHER'|t}}<input type="text" tooltip-html-unsafe="{{dependentParentsInputTooltip}}" ng-model="salaryTaxInfo.allowances.dependent60ParentsResidedWithCount" maxlength="2" size="2">
       {{::'EXEMPTION.LIVING_SEPARATED'|t}} <input type="text" tooltip-html-unsafe="{{dependentParentsInputTooltip}}" ng-model="salaryTaxInfo.allowances.dependent60ParentsCount" maxlength="2" size="2">
     </div>
     <div class="clearfix visible-xs"></div>
-    <div class="col-xs-offset-5 col-sm-offset-0 col-xs-2 col-sm-2  label label-1314 y2013tax">${{y2013.salary.allowancesEntitled.dependent60ParentsTotal}} </div>
     <div class="col-xs-2 col-sm-2  label label-1415 y2014tax">${{y2014.salary.allowancesEntitled.dependent60ParentsTotal}}</div>
     <div class="col-xs-3 col-sm-2  label label-diff">
        <diff prop-key="salary.allowancesEntitled.dependent60ParentsTotal" negative="false"></diff>
    </div>
 </div>
 <div class="row">
-    <div class="col-xs-5 col-sm-3 tax-item">{{::'EXEMPTION.PARENTS_55_COUNT'|t}}</div>
+    <div class="col-xs-7 col-sm-5 tax-item">{{::'EXEMPTION.PARENTS_55_COUNT'|t}}</div>
     <div class="col-xs-7 col-sm-3 tax-item-input">{{::'EXEMPTION.LIVING_TOGETHER'|t}}<input tooltip-html-unsafe="{{dependentParentsInputTooltip}}" type="text" ng-model="salaryTaxInfo.allowances.dependent55ParentsResidedWithCount" maxlength="2" size="2">
       {{::'EXEMPTION.LIVING_SEPARATED'|t}} <input type="text" tooltip-html-unsafe="{{dependentParentsInputTooltip}}" ng-model="salaryTaxInfo.allowances.dependent55ParentsCount" maxlength="2" size="2">
  </div>
 <div class="clearfix visible-xs"></div>
- <div class="col-xs-offset-5 col-sm-offset-0 col-xs-2 label label-1314 y2013tax">${{y2013.salary.allowancesEntitled.dependent55ParentsTotal}} </div>
  <div class="col-xs-2 col-sm-2 label label-1415 y2014tax">${{y2014.salary.allowancesEntitled.dependent55ParentsTotal}}</div>
  <div class="col-xs-3 col-sm-2 label label-diff">
    <diff prop-key="salary.allowancesEntitled.dependent55ParentsTotal" negative="false"></diff>
@@ -251,15 +236,14 @@
 
 <h4 class="calculator-heading"><span tooltip-html-unsafe="{{reductionsTooltip}}" tooltip-placement="right">{{::'CONCESSION.LABEL'|t}} <i  class="fa fa-info-circle" taget="_blank"></i></span><a href="http://www.budget.gov.hk/2014/chi/highlights.html" target="_blank">{{::'DETAILS'|t}}</a></small></h4>
 <div class="row">
-    <div class="col-xs-5 col-sm-6" style="color:gray;font-size:0.8em">{{::'CONCESSION.NOTE'|t}}</div>
-    <div class="col-xs-2 label label-1314 y2013tax">${{y2013.salary.reductions}} </div>
+    <div class="col-xs-7 col-sm-8" style="color:gray;font-size:0.8em">{{::'CONCESSION.NOTE'|t}}</div>
     <div class="col-xs-2 label label-1415 y2014tax"> ${{y2014.salary.reductions}}</div>
     <div class="col-xs-3 col-sm-2 label label-diff">
        <diff prop-key="salary.reductions" negative="false"></diff>
    </div>
 </div>
 <div class="row">
-   <div class="col-xs-5 col-sm-6"></div>
+   <div class="col-xs-7 col-sm-8"></div>
    <div class="col-xs-2 annotations" style="text-align: right;"><em>*12-13*</em> </div>
    <div class="col-xs-2 annotations" style="text-align: right;"><em>*13-14*</em> </div>
    <div class="col-xs-3 col-sm-2"></div>
@@ -269,40 +253,35 @@
 
 
 <div class="row">
-    <div class="col-xs-5 col-sm-3"><label class="total">{{::'TOTAL.INCOME'|t}}</label></div>
-    <div class="col-xs-2 col-sm-offset-3 label label-1314 y2013tax">${{salaryTaxInfo.income}}</div>
+    <div class="col-xs-7 col-sm-8"><label class="total">{{::'TOTAL.INCOME'|t}}</label></div>
     <div class="col-xs-2 label label-1415 y2014tax">${{salaryTaxInfo.income}}</div>
     <div class="col-xs-3 col-sm-2 label label-diff"></div>
 </div>
 
 <div class="row">
-    <div class="col-xs-5 col-sm-3"><label class="total">{{::'TOTAL.DEDUCTION'|t}}</label></div>
-    <div class="col-xs-2 col-sm-offset-3 label label-1314 y2013tax">${{salaryTaxInfo.deductions.othersCount}}</div>
+    <div class="col-xs-7 col-sm-8"><label class="total">{{::'TOTAL.DEDUCTION'|t}}</label></div>
     <div class="col-xs-2 label label-1415 y2014tax">${{salaryTaxInfo.deductions.othersCount}}</div>
     <div class="col-xs-3 col-sm-2 label label-diff"></div>
 </div>
 <div class="row">
-    <div class="col-xs-5 col-sm-3"><label class="total">{{::'TOTAL.EXEMPTION'|t}}</label></div>
-    <div class="col-xs-2 col-sm-offset-3 label label-1314 y2013tax">${{y2013.salary.allowancesEntitled.total}}</div>
+    <div class="col-xs-7 col-sm-8"><label class="total">{{::'TOTAL.EXEMPTION'|t}}</label></div>
     <div class="col-xs-2 label label-1415 y2014tax">${{y2014.salary.allowancesEntitled.total}}</div>
     <div class="col-xs-3 col-sm-2 label label-diff"><diff prop-key="salary.allowancesEntitled.total" negative="false"></div>
 </div>
 <div class="row">
-    <div class="col-xs-5 col-sm-3"><label class="total">{{::'TOTAL.CONCESSION'|t}}</label></div>
-    <div class="col-xs-2 col-sm-offset-3 label label-1314 y2013tax">${{y2013.salary.reductions}} </div>
+    <div class="col-xs-7 col-sm-8"><label class="total">{{::'TOTAL.CONCESSION'|t}}</label></div>
     <div class="col-xs-2 label label-1415 y2014tax">${{y2014.salary.reductions}} </div>
     <div class="col-xs-3 col-sm-2 label label-diff"><diff prop-key="salary.reductions" negative="false"></div>
 </div>
 <div class="row">
-    <div class="col-xs-5 col-sm-3 "><label class="total total-total">{{::'TOTAL.LABEL'|t}}</label></div>
-    <div class="col-xs-2 col-sm-offset-3 label label-1314 y2013tax total-total">${{y2013.salaryTax}}</div>
+    <div class="col-xs-7 col-sm-8 "><label class="total total-total">{{::'TOTAL.LABEL'|t}}</label></div>
     <div class="col-xs-2 label label-1415 y2014tax total-total">${{y2014.salaryTax}}</div>
     <div class="col-xs-3 col-sm-2 label label-diff total-total"><diff prop-key="salaryTax" negative="false"></div>
 </div>
 </div>
 </div>
 </section>
-
+</div>
 
 <div class="row">
     <!-- <div class="col-xs-10 col-sm-5 col-md-3"> <div >2013: ${{y2013.sumTax | number:0}}</div></div>  -->
@@ -311,3 +290,4 @@
 </div>
 
 <link rel="stylesheet" href="http://i.icomoon.io/public/temp/4ad175e1e9/UntitledProject2/style.css">
+</div>
