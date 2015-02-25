@@ -52,6 +52,28 @@ var rates = {
             "limit": -1,
             "rate": 0.15
         }
+    },
+    "y2015": {
+        "0": {
+            "limit": 40000,
+            "rate": 0.02
+        },
+        "1": {
+            "limit": 40000,
+            "rate": 0.07
+        },
+        "2": {
+            "limit": 40000,
+            "rate": 0.12
+        },
+        "3": {
+            "limit": Number.MAX_VALUE,
+            "rate": 0.17
+        },
+        "standard": {
+            "limit": -1,
+            "rate": 0.15
+        }
     }
 };
 //TODO married
@@ -85,8 +107,22 @@ var allowances = {
         "dependent55ParentsResidedWith": 40000,
         "singleParent": 120000,
         "disabledDependent": 66000
+    },
+    "y2015": {
+        //TODO only updated child, bornChild,  another just copied 2014, need to verify, http://www.budget.gov.hk/2015/chi/pdf/c_budgetspeech2015-16.pdf page 51
+        "basic": 120000,
+        "married": 240000,
+        "child": 100000,
+        "bornChild": 200000,
+        "dependentSiblings": 33000,
+        //"dependentDisabledParents": 40000,
+        "dependent60Parents": 40000,
+        "dependent60ParentsResidedWith": 80000,
+        "dependent55Parents": 20000,
+        "dependent55ParentsResidedWith": 40000,
+        "singleParent": 120000,
+        "disabledDependent": 66000
     }
-
 };
 
 var reduction = {
@@ -98,6 +134,11 @@ var reduction = {
     "y2014": {
         "percent": 0.75,
         "maximum":"10000",
+        "cases":["salary","profits","personal"]
+    },
+    "y2015": {
+        "percent": 0.75,
+        "maximum":"20000",
         "cases":["salary","profits","personal"]
     }
 };

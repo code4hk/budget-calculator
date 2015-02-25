@@ -54,13 +54,16 @@ define(
 
           initYear('y2013');
           initYear('y2014');
+          initYear('y2015');
 
           //tax only noy price
           $scope['y2013'].cigaretteFormula = 34.12 * 52;
           $scope['y2014'].cigaretteFormula = 38.12 * 52;
+          $scope['y2015'].cigaretteFormula = 38.12 * 52; //TODO copied from 2014, need to verify
 
           $scope['y2013'].waterFormula = 1 * 12;
           $scope['y2014'].waterFormula = 1.2 * 12; //TODO
+          $scope['y2015'].waterFormula = 1.2 * 12; //TODO copied from 2014, need to verify
 
           $scope['y2013'].electricityFormula = function(month) {
             var afterDeduction = month * 12 - 1800;
@@ -71,15 +74,18 @@ define(
             }
           };
           $scope['y2014'].electricityFormula = 1 * 12;
+          $scope['y2015'].electricityFormula = 1 * 12; //TODO copied from 2014, need to verify
 
 
           $scope['y2013'].publicHouseRentFormula = 1 * 10;
           $scope['y2014'].publicHouseRentFormula = 1 * 11;
+          $scope['y2015'].publicHouseRentFormula = 1 * 11;
 
           //TODO
 
           $scope['y2013'].firstCarFormula = 0;
           $scope['y2014'].firstCarFormula = 1000; //TODO
+          $scope['y2014'].firstCarFormula = 1000; //TODO copied from 2014, need to verify
 
 
 
@@ -88,6 +94,9 @@ define(
           };
           $scope['y2014'].publicServiceFormula = function(count) {
             return Math.max(count - 1500, 0) * 2 + count * 2;
+          };
+          $scope['y2015'].publicServiceFormula = function(count) {
+            return Math.max(count - 2500, 0) * 2 + count * 2;
           };
 
           //                 Private cars-
@@ -231,8 +240,10 @@ define(
 
           //cant handle nested
           $scope.diff = function(propKey) {
-            return $scope.$eval('y2014.' + propKey) - $scope.$eval(
-              'y2013.' + propKey);
+            return $scope.$eval('y2015.' + propKey) - $scope.$eval(
+                      'y2014.' + propKey);
+            //return $scope.$eval('y2014.' + propKey) - $scope.$eval(
+            //  'y2013.' + propKey);
             // return $scope['y2014'][propKey] - $scope['y2013'][propKey];
           };
 
@@ -317,9 +328,11 @@ define(
           $scope.$watch('living', function(newVal, oldVal) {
             calculateLiving('y2013');
             calculateLiving('y2014');
+            calculateLiving('y2015');
 
             calculateTotal('y2013');
             calculateTotal('y2014');
+            calculateTotal('y2015');
 
           }, true);
 
@@ -340,10 +353,12 @@ define(
           $scope.$watch('salaryTaxInfo', function(newVal, oldVal) {
             calculateIncomeTax('y2013');
             calculateIncomeTax('y2014');
+            calculateIncomeTax('y2015');
 
 
             calculateTotal('y2013');
             calculateTotal('y2014');
+            calculateTotal('y2015');
 
             toggleAllowancesForMarried($scope.salaryTaxInfo.maritalStatus ===
               'married');
