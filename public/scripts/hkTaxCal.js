@@ -52,6 +52,28 @@ var rates = {
             "limit": -1,
             "rate": 0.15
         }
+    },
+    "y2015": {
+        "0": {
+            "limit": 40000,
+            "rate": 0.02
+        },
+        "1": {
+            "limit": 40000,
+            "rate": 0.07
+        },
+        "2": {
+            "limit": 40000,
+            "rate": 0.12
+        },
+        "3": {
+            "limit": Number.MAX_VALUE,
+            "rate": 0.17
+        },
+        "standard": {
+            "limit": -1,
+            "rate": 0.15
+        }
     }
 };
 //TODO married
