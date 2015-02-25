@@ -14,7 +14,9 @@ define(["require", "exports"], function(require, exports) {
 		"RATES_TOOLTIP_1415": "14-15: 全年首兩季獲每季上限$1500的寬減,總計$3,000",
 		"RATES_TOOLTIP_1516": "15-16: 全年首兩季獲每季上限$2500的寬減,總計$5,000",
 		"PUBLIC_HOUSING_RENT": "Public Housing Monthly Rent",
-		"PUBLIC_HOUSING_TOOLTIP": ""
+		"PUBLIC_HOUSING_TOOLTIP": "",
+		"CSSA": "Accepting CSSA, Old Age / Old Age Living / Disability Allowance",
+		"LIVING.CSSA_TOOLTIP": "15-16: 2 months' extra allowance"
 	},
 	"MORE": "More",
 	"MONTH": "Months",
@@ -22,6 +24,7 @@ define(["require", "exports"], function(require, exports) {
 	"INCOME_TOTAL": "Total income",
 	"DEDUCTION": "Deductions",
 	"DEDUCTION_TOTAL": "Total deductions",
+	"DEDUCTION_TOOLTIP": "Outgoings and Expenses for self-educations, MPF or Charitable Donations, ",
 	"EXEMPTION": {
 		"HEADING": "Allowances",
 		"MARITAL_STATUS_LABEL": "Marital status",

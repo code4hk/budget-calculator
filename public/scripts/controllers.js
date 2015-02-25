@@ -82,6 +82,10 @@ define(
           $scope['y2014'].publicHouseRentFormula = 1 * 11;
           $scope['y2015'].publicHouseRentFormula = 1 * 11;
 
+          $scope['y2013'].cssaFormula = 1 * 12;
+          $scope['y2014'].cssaFormula = 1 * 13;
+          $scope['y2015'].cssaFormula = 1 * 15;
+
           //TODO
 
           $scope['y2013'].firstCarFormula = 0;
@@ -135,9 +139,10 @@ define(
             '</div>';
           $scope.publicHouseRentInputTooltip = tFilter(
             'LIVING.PUBLIC_HOUSING_TOOLTIP');
+          $scope.cssaTooltip = tFilter('LIVING.CSSA_TOOLTIP')
           $scope.cigaretteInputTooltip =
             '<div>13-14年:每支1.7</div><div>14-15年:$1.9</div>';
-          $scope.deductionsInputTooltip = tFilter("DEDUCTION_TOOLTIP");
+          $scope.deductionsInputTooltip = tFilter('DEDUCTION_TOOLTIP');
           // <small><a href="http://www.gov.hk/tc/residents/taxes/salaries/allowances/deductions/index.htm" target="_blank">詳情</a></small>
           // $scope.incomeInputTooltip='所有薪金、工資及董事酬金均須要課繳薪俸稅';
           $scope.childInputTooltip = '假若子女於課說年度(4月1日至來年3月31日)出生，可獲額外免稅額';
@@ -146,7 +151,7 @@ define(
           $scope.dependentParentsInputTooltip = tFilter(
             'EXEMPTION.DEPENDENT_PARENTS_TOOLTIP');
           var livingItems = ['cigarette', 'water', 'electricity',
-            'firstCar', 'publicService', 'publicHouseRent'
+            'firstCar', 'publicService', 'publicHouseRent', 'cssa'
           ];
           var allItems = ['living', 'salary'];
           var allowancesItems = ["basic", "married", "child", "bornChild",

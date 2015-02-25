@@ -14,7 +14,9 @@ define(["require", "exports"], function(require, exports) {
 		"RATES_TOOLTIP_1415": "14-15: 全年首兩季獲每季上限$1500的寬減,總計$3,000",
 		"RATES_TOOLTIP_1516": "15-16: 全年首兩季獲每季上限$2500的寬減,總計$5,000",
 		"PUBLIC_HOUSING_RENT": "公屋月租",
-		"PUBLIC_HOSUING_TOOLTIP": "14-15:為公屋租戶代繳一個月租金<br/>15-16:為公屋租戶代繳一個月租金，不變"
+		"PUBLIC_HOSUING_TOOLTIP": "14-15:為公屋租戶代繳一個月租金<br/>15-16:為公屋租戶代繳一個月租金，不變",
+		"CSSA": "領取綜緩、高齡津貼、長者生活或傷殘津貼",
+		"LIVING.CSSA_TOOLTIP": "15-16: 發放額外2個月津貼"
 	},
 	"MORE": "更多",
 	"MONTH": "月",
@@ -30,6 +32,7 @@ define(["require", "exports"], function(require, exports) {
 		"MARITAL_STATUS_MARRIED": "已婚",
 		"BASIC": "基本",
 		"CHILDREN_COUNT": "供養子女數目",
+		"CHILDREN": "名",
 		"BORN_IN_TAX_YEAR": "(課稅年出生)",
 		"SINGLE_PARENT": "單親免稅額",
 		"PARENTS_60_COUNT": "供養父母／祖父母(60歲或以上／殘疾)數目",
