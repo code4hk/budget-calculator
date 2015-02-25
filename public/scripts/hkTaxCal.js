@@ -85,8 +85,22 @@ var allowances = {
         "dependent55ParentsResidedWith": 40000,
         "singleParent": 120000,
         "disabledDependent": 66000
+    },
+    "y2015": {
+        //only update child,  another just copy
+        "basic": 120000,
+        "married": 240000,
+        "child": 100000,
+        "bornChild": 140000,
+        "dependentSiblings": 33000,
+        //"dependentDisabledParents": 40000,
+        "dependent60Parents": 40000,
+        "dependent60ParentsResidedWith": 80000,
+        "dependent55Parents": 20000,
+        "dependent55ParentsResidedWith": 40000,
+        "singleParent": 120000,
+        "disabledDependent": 66000
     }
-
 };
 
 var reduction = {
