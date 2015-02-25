@@ -43,7 +43,8 @@ define(
             redirectTo: '/'
           });
         }
-      ]).config(['$tooltipProvider', function(tooltipProvider) {
+      ])
+      .config(['$tooltipProvider', function(tooltipProvider) {
         // tooltipProvider.options({placement:'right'});
       }])
       .directive('taxDiff', function() {

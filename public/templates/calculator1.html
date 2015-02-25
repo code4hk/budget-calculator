@@ -1,4 +1,5 @@
-<div style="postition:relative;margin 10px 0px 10px 0px">
+<div ng-controller="calculatorCtrl">
+<div  style="postition:relative;margin 10px 0px 10px 0px">
     <div class="">
        <a id="code4hk-badge-link" href="http://www.code4.hk" target="_blank"><img style="z-index:9999;position: absolute; top: 0; left: 0; border: 0;" src="https://trello-attachments.s3.amazonaws.com/52998d087f8efc0d05011eec/52ad5642cb6eba6571011a25/5af35373d1d638925edb4a6fd807e19c/forkme_light_background.png" alt="Code for Hong Kong" data-canonical-src="https://trello-attachments.s3.amazonaws.com/52998d087f8efc0d05011eec/52ad5642cb6eba6571011a25/5af35373d1d638925edb4a6fd807e19c/forkme_light_background.png"></a>
    </div>
@@ -55,17 +56,8 @@
 </nav>
 </div>
 <div class="calculator-container container-fluid content">
-<!--     <div class="calculator-header">
-        <h1>Budget Calculator</h1>
-        <div>Header2</div>
-    </div>
-    <div class="outer">
-        <span class="banner">LOGO</span>
-        <div class="calculator-header"><div>Header1</div></div>
-    </div>
-    <div class="content">Content</div> -->
     <section>
-        <h3 class="calculator-heading">{{'CALCULATOR_HEADER_TITLE'|translate}}</h3>
+        <h3 class="calculator-heading">{{'HEADING.LIVING_COST'|translate}}</h3>
     <div class="row" >
         <div class="col-xs-7 col-sm-5" >
             <i class="fa fa-flash"></i>電費 <a href="https://www.clponline.com.hk/FAQ/ResidentialCustomersFAQ/Pages/govSubsidy.aspx#a01" target="_blank"><i class="fa fa-info-circle" taget="_blank"></i>中電資料</a>
@@ -112,7 +104,7 @@
     <div class="col-xs-7 col-sm-5 tax-item">
         <span tooltip-html-unsafe="{{publicHouseRentInputTooltip}}" tooltip-placement="right"><span class="fa fa-home"></span>公屋月租</span>
     </div>
-    <div class="col-xs-7 col-sm-3 tax-item-input">每月$<input ng-focus="$parent.showLivingExpense=true" tooltip-html-unsafe="{{publicHouseRentInputTooltip}}" type="text" ng-model="living.publicHouseRentCount" maxlength="6" size="5">x 12 月</div>
+    <div class="col-xs-7 col-sm-3 tax-item-input">每月$<input ng-focus="$parent.isShowLivingExpense=true" tooltip-html-unsafe="{{publicHouseRentInputTooltip}}" type="text" ng-model="living.publicHouseRentCount" maxlength="6" size="5">x 12 月</div>
     <div class="col-xs-2 col-sm-2 label label-1415 y2014tax">${{y2014.publicHouseRentTax | number:0}}
     </div>
     <div class="col-xs-3 col-sm-2 label label-diff">
@@ -127,11 +119,21 @@
 </div>
 
 </section>
+</div>
+
+<div class=" container-fluid content">
+  <div class="row">
+    <div ng-show="!isShowLivingExpense" ng-click="showLivingExpense()" class="col-xs-2 col-xs-offset-5 calculator-container" style="font-size:2rem;">
+        <a href=""><i class="fa fa-chevron-circle-down"><span style="margin-left:2rem;">More</span></i></a>
+    </div>
+  </div>
+  </div>
+
 <!-- livingTax -->
 
-
-<section ng-show="showLivingExpense">
-    <h3 class="calculator-heading">{{'HEADING.LIVING_COST'|translate}}</h3>
+<div id="living" class="calculator-container container-fluid content">
+<section ng-show="isShowLivingExpense">
+    <h3 class="calculator-heading">{{'HEADING.SALARY_TAX'|translate}}</h3>
     <div class="row">
         <div class="col-xs-7 col-sm-5 tax-item">{{'INCOME_TOTAL'|t}}</div>
         <div class="col-xs-7 col-sm-3 tax-item-input">
@@ -279,7 +281,7 @@
 </div>
 </div>
 </section>
-
+</div>
 
 <div class="row">
     <!-- <div class="col-xs-10 col-sm-5 col-md-3"> <div >2013: ${{y2013.sumTax | number:0}}</div></div>  -->
@@ -288,3 +290,4 @@
 </div>
 
 <link rel="stylesheet" href="http://i.icomoon.io/public/temp/4ad175e1e9/UntitledProject2/style.css">
+</div>
