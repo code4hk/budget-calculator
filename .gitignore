@@ -2,3 +2,4 @@ node_modules
 dist
 public/bower_components
 pre-dist
+.idea
