@@ -128,23 +128,23 @@ define(
 
           var tFilter = $filter('t');
           $scope.electricityInputTooltip =
-            '<div>電費以每月計算</div><div>13-14:政府2013年6月至2014年6月每月補貼$150,總計$1,800</div> <div>14-15: 取消電費補貼安排</div>';
+            '<div>14-15: 取消電費補貼安排<div>15-16: 取消電費補貼安排</div>';
           $scope.publicServiceInputTooltip =
             '<div>差餉以每季計算</div><div>' + tFilter('LIVING.RATES_TOOLTIP_1415') +
             '</div> <div>' + tFilter('LIVING.RATES_TOOLTIP_1516') +
             '</div>';
-          $scope.publicHouseRentInputTooltip =
-            '<div>13-14:為公屋租戶代繳兩個月租金</div><div>14-15:今年減至只代繳一個月</div>';
+          $scope.publicHouseRentInputTooltip = tFilter(
+            'LIVING.PUBLIC_HOUSING_TOOLTIP');
           $scope.cigaretteInputTooltip =
             '<div>13-14年:每支1.7</div><div>14-15年:$1.9</div>';
-          $scope.deductionsInputTooltip = '支出及開支、進修、MPF、慈善捐款、長者住宿照顧開支等';
+          $scope.deductionsInputTooltip = tFilter("DEDUCTION_TOOLTIP");
           // <small><a href="http://www.gov.hk/tc/residents/taxes/salaries/allowances/deductions/index.htm" target="_blank">詳情</a></small>
           // $scope.incomeInputTooltip='所有薪金、工資及董事酬金均須要課繳薪俸稅';
           $scope.childInputTooltip = '假若子女於課說年度(4月1日至來年3月31日)出生，可獲額外免稅額';
-          $scope.reductionsTooltip =
-            '13-14/14-15:寬減75%的年度薪俸稅及個人入息稅，上限為1萬元 ';
-          $scope.dependentParentsInputTooltip =
-            '14-15:提高供養父母或祖父母的免稅額, 60歲或以上提高$2,000至$40,000；55-59歲提高$1,000至$20,000';
+          $scope.reductionsTooltip = tFilter('REDUCTION.TOOLTIP_1415') +
+            '<br/>' + tFilter('REDUCTION.TOOLTIP_1516');
+          $scope.dependentParentsInputTooltip = tFilter(
+            'EXEMPTION.DEPENDENT_PARENTS_TOOLTIP');
           var livingItems = ['cigarette', 'water', 'electricity',
             'firstCar', 'publicService', 'publicHouseRent'
           ];
@@ -286,6 +286,65 @@ define(
               }, 0);
             // return
           };
+          $scope.parentInfoScope = {
+            "parentCalculation": []
+          };
+
+          function _mapParentCount(parent) {
+            parent.ageGroup = parseInt(parent.ageGroup)
+            if (parent.ageGroup ===
+              1 && parent.together) {
+              $scope.salaryTaxInfo.allowances[
+                'dependent55ParentsResidedWithCount'] ++;
+
+            } else if (parent.ageGroup ===
+              1 && !parent.together) {
+              $scope.salaryTaxInfo.allowances[
+                'dependent55ParentsCount'] ++;
+
+            } else if (parent.ageGroup ===
+              2 && parent.together) {
+              $scope.salaryTaxInfo.allowances[
+                'dependent60ParentsResidedWithCount'] ++;
+            } else if (parent.ageGroup ===
+              2 && !parent.together) {
+              $scope.salaryTaxInfo.allowances[
+                'dependent60ParentsCount'] ++;
+            }
+          }
+
+          function _mapAllParentsCount() {
+            ['dependent55ParentsResidedWithCount',
+              'dependent55ParentsCount',
+              'dependent60ParentsResidedWithCount',
+              'dependent60ParentsCount'
+            ].forEach(function(key) {
+              $scope.salaryTaxInfo.allowances[key] = 0;
+            })
+
+            $scope.parentInfoScope.parentCalculation.forEach(
+              function(parent) {
+                _mapParentCount(parent);
+              })
+          }
+
+          $scope.$watch('parentInfoScope.parentCalculation', function() {
+            _mapAllParentsCount();
+          });
+          $scope.$on('calculateParents', function(id) {
+            //won't work as result depends all
+            // if (id) {
+            // _mapParentCount($scope.parentInfoScope.parentCalculation[
+            //   id]);
+            // } else {
+
+
+            _mapAllParentsCount();
+            calculateAllowances("y2014");
+            calculateAllowances("y2015");
+          })
+
+
           var calculateAllowances = function(year) {
             allowancesItems.map(function(item) {
               $scope[year]['salary']['allowancesEntitled'][item] =
@@ -298,6 +357,9 @@ define(
               $scope[year]['salary']['allowancesEntitled']['bornChild'] +
               $scope[year]['salary']['allowancesEntitled']['child'];
 
+            // $scope[year]['salary']['allowancesEntitled']={};
+
+
             $scope[year]['salary']['allowancesEntitled'][
               'dependent55ParentsTotal'
             ] = $scope[year]['salary']['allowancesEntitled'][
@@ -305,12 +367,21 @@ define(
             ] + $scope[year]['salary']['allowancesEntitled'][
               'dependent55ParentsResidedWith'
             ];
+
             $scope[year]['salary']['allowancesEntitled'][
               'dependent60ParentsTotal'
             ] = $scope[year]['salary']['allowancesEntitled'][
               'dependent60Parents'
             ] + $scope[year]['salary']['allowancesEntitled'][
               'dependent60ParentsResidedWith'
+            ];
+
+            $scope[year]['salary']['allowancesEntitled'][
+              'dependentParentsTotal'
+            ] = $scope[year]['salary']['allowancesEntitled'][
+              'dependent55ParentsTotal'
+            ] + $scope[year]['salary']['allowancesEntitled'][
+              'dependent60ParentsTotal'
             ];
 
             $scope[year]['salary']['allowancesEntitled']['basicPerStatus'] =

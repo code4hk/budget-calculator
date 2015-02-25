@@ -66,8 +66,12 @@ define(
             id: '@'
           },
           controller: ['$scope', function($scope) {
+            //defaults
             $scope.parentInfo.together = true;
-            // $scope.
+            //TODO deep watch
+            $scope.$watch('parentInfo', function() {
+              $scope.$emit('calculateParents', $scope.id);
+            }, true)
           }],
           templateUrl: 'templates/parents.html'
         }
@@ -125,30 +129,22 @@ define(
             $scope.y2014 = $scope.$parent.$y2014;
             $scope.y2013 = $scope.$parent.$y2013;
           }],
-          template: '<span ng-class="payClass(true)" ng-show="diff(propKey)>0"><span translate="PAY_MORE" translate-value-amount="{{abs(diff(propKey))}}"></span></span><span  ng-class="payClass(false)" ng-show="diff(propKey)<0"><span translate="PAY_MORE" translate-value-amount="{{abs(diff(propKey))}}"></span> </span><span  ng-class="\'payLess\'" ng-show="diff(propKey)==0">{{::\'SAME\'|t}} </span>'
+          template: '<span ng-class="payClass(true)" ng-show="diff(propKey)>0"><span translate="AMOUNT_MORE" translate-value-amount="{{abs(diff(propKey))}}"></span></span>' +
+            '<span  ng-class="payClass(false)" ng-show="diff(propKey)<0"><span translate="AMOUNT_LESS" translate-value-amount="{{abs(diff(propKey))}}"></span> </span><span  ng-class="\'payLess\'" ng-show="diff(propKey)==0">{{::\'SAME\'|t}} </span>'
         };
       })
       .controller('parentInfoCtrl', ['$scope', function($scope) {
-        $scope.parentInfoScope = {};
-        $scope.parentInputs = [];
-        $scope.parentInfoScope.parentCalculation = [];
+        $scope.parentCount = 0; //default
 
-        function _addParent() {
-          $scope.parentInputs.push({
+        $scope.parentInputs = Array.apply(null, Array(10)).map(function() {
+          return {
             together: true,
             ageGroup: 1
-          })
+          }
+        })
 
-        };
-
-        for (var i = 0; i <= 10; i++) {
-          _addParent();
-        }
-
-        $scope.parentCount = 2; //default
         $scope.$watch('parentCount', function(newVal) {
           //keep reference to each
-
           $scope.parentInfoScope.parentCalculation = $scope.parentInputs
             .slice(0, $scope.parentCount);
         })
