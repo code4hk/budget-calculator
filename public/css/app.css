@@ -19,7 +19,7 @@ div {
   top: auto;
 }
 .content {
-  margin-top: 0.3em;
+  margin-top: 2em;
 }
 .flatRoundedCheckbox {
   width: 80px;
@@ -71,6 +71,7 @@ div {
   color: green;
 }
 nav .calculator-header {
+  background-color: white;
   background-color: #FFFFFF;
   color: #999999;
 }
@@ -165,7 +166,7 @@ body {
 .tax-item-input {
   /*text-align:right;*/
   text-align: left;
-  padding-left: 0px;
+  /*      padding-left:0px;*/
   /*should for sm only*/
 }
 @font-face {
@@ -227,4 +228,7 @@ h3 {
 }
 .content .row div {
   margin-bottom: 0.5em;
+}
+label.total {
+  font-weight: 500;
 }

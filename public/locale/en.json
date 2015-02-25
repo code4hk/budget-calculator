@@ -39,7 +39,8 @@
   "AMOUNT_PAY": "Pay ${{amount|number:0}}",
   "AMOUNT_MORE": "an extra {{amount|number:0}}",
   "AMOUNT_LESS": "{{amount|number:0}} less",
-  "PAY_MORE": "You have to pay ${{amount|number:0}} more",
-  "PAY_LESS": "You can pay ${{amount|number:0}} less",
-  "THIS_YEAR": "this year"
+  "PAY_MORE": "pay ${{amount|number:0}} more",
+  "PAY_LESS": "pay ${{amount|number:0}} less",
+  "THIS_YEAR": "this year",
+  "YEAR_1516": "Year15-16"
 }
