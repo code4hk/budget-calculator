@@ -33,8 +33,7 @@ define(
             });
           }
 
-
-          $scope.show2013 = true;
+          $scope.show2013 = false;
           $scope.show2014 = true;
 
           var initYear = function(year) {
@@ -168,6 +167,9 @@ define(
             salaryTaxInfo['allowances']['isSingleParent'] = false;
             $scope.living = living;
             $scope.salaryTaxInfo = salaryTaxInfo;
+
+            var showLivingExpense = false;
+            $scope.showLivingExpense = showLivingExpense;
           };
 
           //TODO make input as ints?
