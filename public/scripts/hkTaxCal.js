@@ -109,11 +109,11 @@ var allowances = {
         "disabledDependent": 66000
     },
     "y2015": {
-        //TODO only updated child,  another just copied 2014, need to verify
+        //TODO only updated child, bornChild,  another just copied 2014, need to verify
         "basic": 120000,
         "married": 240000,
         "child": 100000,
-        "bornChild": 140000,
+        "bornChild": 200000,
         "dependentSiblings": 33000,
         //"dependentDisabledParents": 40000,
         "dependent60Parents": 40000,
