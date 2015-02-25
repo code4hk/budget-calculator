@@ -86,6 +86,12 @@ var concatJs = function() {
 
 };
 
+gulp.task('less', function() {
+  gulp.src('less/*.less')
+    .pipe(less())
+    .pipe(gulp.dest('public/css/'))
+})
+
 gulp.task('build2', ['build'], function(cb) {
   //smell of bad design but works
   //trick let this two overwite the concated js file
@@ -143,7 +149,6 @@ gulp.task('build', function(cb) {
 
 });
 
-
 gulp.task('default', ['listen', 'translations'], function() {
 
   bower()
@@ -163,10 +168,8 @@ gulp.task('default', ['listen', 'translations'], function() {
   gulp.watch('public/locale/*', ['translations']);
 
   gulp.src('less/*.less')
-    .pipe(watch())
     .pipe(less())
     .pipe(gulp.dest('public/css/'))
-    .pipe(livereload(server));
 
   concatJs();
 

@@ -185,8 +185,8 @@
         <div class="col-xs-7 col-sm-5 tax-item">{{::'EXEMPTION.CHILDREN_COUNT'|t}}</div>
         <div class="col-xs-7 col-sm-3 tax-item-input">
             <span class="label label-info" ng-click="salaryTaxInfo.allowances.childCount=1" href="">1</span>
-             <span class="label label-info" ng-click="salaryTaxInfo.allowances.childCount=1" href="">2</span>
-              <span class="label label-info" ng-click="salaryTaxInfo.allowances.childCount=1" href="">3</span>
+             <span class="label label-info" ng-click="salaryTaxInfo.allowances.childCount=2" href="">2</span>
+              <span class="label label-info" ng-click="salaryTaxInfo.allowances.childCount=3" href="">3</span>
               <i class="fa fa-child clickable-human"></i>...
             <input tooltip-html-unsafe="{{childInputTooltip}}" type="text" ng-model="salaryTaxInfo.allowances.childCount" maxlength="1" size="1">Children
 
@@ -222,7 +222,10 @@
     <i class="fa fa-user clickable-human"></i>.....<input tooltip-html-unsafe="{{childInputTooltip}}" type="text" ng-model="parentCount" maxlength="1" size="1">Parents
     <parent-record ng-repeat="n in [] | range:parentCount" parent-info="parentInputs[$index]" id="{{$index}}"></parent-record>
   </div>
-
+  <div class="col-xs-2 col-sm-2  label label-1415 y2014tax">${{y2014.salary.allowancesEntitled.dependent60ParentsTotal}}</div>
+  <div class="col-xs-3 col-sm-2  label label-diff">
+     <diff prop-key="salary.allowancesEntitled.dependent60ParentsTotal" negative="false"></diff>
+ </div>
 </div>
 <div class="ng-hide row">
     <div class="col-xs-7 col-sm-5 tax-item">{{::'EXEMPTION.PARENTS_60_COUNT'|t}}</div>
