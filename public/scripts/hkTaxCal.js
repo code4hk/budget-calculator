@@ -144,7 +144,9 @@ define([], function() {
   };
 
   _calculator.calReductions = function(year, taxPayable) {
-    var exceedMax = taxPayable > reduction[year]["maximum"];
+    var exceedMax = parseFloat(taxPayable) > parseFloat(reduction[year][
+      "maximum"
+    ]);
     return exceedMax ? reduction[year]["maximum"] : (taxPayable *
       reduction[year]["percent"]);
   };
