@@ -53,7 +53,7 @@ define(["require", "exports"], function(require, exports) {
 		"INCOME": "Total income",
 		"DEDUCTION": "Total deductions",
 		"EXEMPTION": "Total allowances",
-		"Reduction": "Total reductions"
+		"REDUCTION": "Total reductions"
 	},
 	"DETAILS": "Details",
 	"YES": "Yes",

@@ -53,7 +53,7 @@ define(["require", "exports"], function(require, exports) {
 		"INCOME": "總收入",
 		"DEDUCTION": "總扣除",
 		"EXEMPTION": "總免稅額",
-		"CONCESSION": "總寬減"
+		"REDUCTION": "總寬減"
 	},
 	"DETAILS": "詳情",
 	"YES": "是",
