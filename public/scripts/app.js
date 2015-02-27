@@ -19,7 +19,7 @@ define(
         'ui.bootstrap.tooltip',
         'pascalprecht.translate',
         'taxCalculator.translations.zh-TW',
-        // 'ngAnimate',
+        'ngAnimate',
         'taxCalculator.translations.en',
       ])
       .filter('range', function() {
