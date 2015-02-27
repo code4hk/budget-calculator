@@ -7,6 +7,7 @@ define(
     "controllers",
     "services",
     "angular-route",
+    "angular-animate",
     "ui-bootstrap",
     "angular-translate"
   ],
@@ -18,6 +19,7 @@ define(
         'ui.bootstrap.tooltip',
         'pascalprecht.translate',
         'taxCalculator.translations.zh-TW',
+        // 'ngAnimate',
         'taxCalculator.translations.en',
       ])
       .filter('range', function() {
@@ -103,14 +105,13 @@ define(
           },
           controller: ['$scope', function($scope) {
             // $scope.diff = $scope.$parent.diff;
-
             $scope.abs = Math.abs;
             $scope.diff = function(propKey) {
               return $scope.$parent.diff(propKey);
             };
             $scope.payClass = function(isMore) {
               var clazz = 'payMore';
-              if (!!$scope.negative) {
+              if ($scope.negative === "false") {
                 if (isMore) {
                   clazz = 'payLess';
                 } else if (!isMore) {

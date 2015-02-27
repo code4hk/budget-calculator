@@ -8,10 +8,11 @@ var require = {
     "angular-mocks": "../bower_components/angular-mocks/angular-mocks",
     "angular-resource": "../bower_components/angular-resource/angular-resource",
     "angular-sanitize": "../bower_components/angular-sanitize/angular-sanitize",
+    "angular-animate": "../bower_components/angular-animate/angular-animate",
     "angular-route": "../bower_components/angular-route/angular-route",
     "spin-js": "../bower_components/spin.js/spin",
     "hkTaxCal": "hkTaxCal",
-    "ui-bootstrap": "ui-bootstrap-custom-tpls-0.10.0",
+    "ui-bootstrap": "../bower_components/angular-bootstrap/ui-bootstrap-tpls.min",
     "angular-translate": "../bower_components/angular-translate/angular-translate",
     "angular-busy": "../",
     "taxCalculator.translations.en": "en/translations",
@@ -28,6 +29,11 @@ var require = {
       ]
     },
     "angular-sanitize": {
+      "deps": [
+        "angular"
+      ]
+    },
+    "angular-animate": {
       "deps": [
         "angular"
       ]

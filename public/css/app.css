@@ -19,7 +19,7 @@ div {
   top: auto;
 }
 .content {
-  margin-top: 2em;
+  margin-top: 1em;
 }
 .flatRoundedCheckbox {
   width: 80px;
@@ -231,4 +231,11 @@ h3 {
 }
 label.total {
   font-weight: 500;
+}
+.payMore {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+.payMore.ng-show {
+  font-size: 5rem;
 }

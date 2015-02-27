@@ -175,12 +175,9 @@ define([], function() {
     calSeg(r[1], 2);
     calSeg(r[2], 3);
 
-    console.log("Tax:" + tax);
-    console.log("taxable" + taxable);
     var totalTax = tax.reduce(function(p, c) {
       return (p | 0) + (c | 0)
     });
-    console.log(totalTax);
     return totalTax;
   };
 
