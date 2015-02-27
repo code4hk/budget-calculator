@@ -75,7 +75,7 @@
         <span tooltip-html-unsafe="{{cigaretteInputTooltip}}" tooltip-placement="right"><span class="icon-svg"></span>煙草稅</span><a href="http://www.customs.gov.hk/tc/trade_facilitation/dutiable/types/index.html#tobacco" target="_blank"><i class="fa fa-info-circle"></i>海關資料</a>
     </div>
     <div class="col-xs-7 col-sm-3 tax-item-input">每星期 <input tooltip-html-unsafe="{{cigaretteInputTooltip}}" tooltip-trigger="focus" type="text" ng-model="living.cigaretteCount" maxlength="4" size="4">包<small>（20支捲煙）</small></div>
-    <div class="col-xs-2 col-sm-2 y2014tax label label-1415"><div ng-show="show2014">${{y2015.cigaretteTax | number:0}}</div></div>
+    <div class="col-xs-2 col-sm-2 y2014tax label label-1415">${{y2015.cigaretteTax | number:0}}</div>
     <div class="col-xs-3 col-sm-2 label label-diff"> <tax-diff prop-key="cigaretteTax"></tax-diff>       </div>
 </div>
 <!-- <div class="row">
